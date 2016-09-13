@@ -1,4 +1,6 @@
-# React course explaining some of their features and topics
+# React course
+
+React course explaining some of their features and topics.
 
 ## Subjects
 
