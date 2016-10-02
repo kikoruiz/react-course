@@ -1,18 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import Title from './title';
 
-class Title extends Component {
-  static get propTypes () {
-    return {
-      name: PropTypes.string.isRequired
-    };
-  }
-
-  render () {
-    return <h1 className='title'>Hello {this.props.name}!</h1>;
-  }
-}
-
-class Demo extends Component {
+export default class Demo extends Component {
   render () {
     return (
       <div className='demo'>
@@ -21,5 +10,3 @@ class Demo extends Component {
     );
   }
 }
-
-export default Demo;
