@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 
-export default class Demo extends Component {
+class Title extends Component {
   render () {
-    return <h1>Hello World!</h1>;
+    return <h1 className='title'>Hello World!</h1>;
   }
 }
+
+class Demo extends Component {
+  render () {
+    return (
+      <div className='demo'>
+        <Title />
+      </div>
+    );
+  }
+}
+
+export default Demo;
