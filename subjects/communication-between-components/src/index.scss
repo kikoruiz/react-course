@@ -1,1 +1,61 @@
 @import '~normalize.css/normalize';
+
+$spacing-base: 1em;
+$spacing-l: $spacing-base * 2;
+$spacing-m: $spacing-base;
+$spacing-s: $spacing-base / 2;
+
+$c-highlighted: lighten(yellow, 30%);
+
+body {
+  padding: $spacing-m;
+}
+
+.app {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+
+  @media screen and (min-width: 601px) {
+    flex-direction: row;
+  }
+}
+
+.title {
+  display: inline-block;
+
+  &--highlighted {
+    background-color: $c-highlighted;
+  }
+}
+
+.form {
+  &-field:not(:last-child) {
+    margin-bottom: $spacing-m;
+  }
+}
+
+.notes {
+  margin: 0;
+  padding: 0;
+
+  &:not(:empty) {
+    border: 1px solid #ccc;
+  }
+
+  &-item {
+    display: block;
+    padding: $spacing-m;
+    user-select: none;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #ccc;
+    }
+
+    &--done {
+      color: lighten(black, 60%);
+      text-decoration: line-through;
+      background-color: lighten(#ccc, 15%);
+    }
+  }
+}

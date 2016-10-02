@@ -2,6 +2,7 @@ var TARGET = process.env.npm_lifecycle_event;
 var path = require('path');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
+var autoprefixer = require('autoprefixer');
 var baseConfig = {
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -18,10 +19,13 @@ var baseConfig = {
       exclude: path.join(__dirname, 'node_modules'),
       include: path.join(__dirname, 'src')
     }, {
-      test: /\.scss$/,
-      loaders: ['style', 'css', 'sass']
+      test: /\.s?css$/,
+      loaders: ['style', 'css', 'postcss', 'sass']
     }]
-  }
+  },
+  postcss: [autoprefixer({
+    browsers: ['last 2 versions']
+  })]
 };
 var config;
 var mainEntry = './src/index.js';

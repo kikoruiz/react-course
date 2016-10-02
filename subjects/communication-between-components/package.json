@@ -11,30 +11,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kikoruiz/react-course.git"
+    "url": "https://github.com/kikoruiz/react-course/tree/master/subjects/communication-between-components"
   },
   "private": true,
   "dependencies": {
-    "normalize.css": "4.2",
-    "react": "15.3",
-    "react-dom": "15.3"
-  },
-  "devDependencies": {
-    "babel-cli": "6.14",
-    "babel-eslint": "6.1",
-    "babel-loader": "6.2",
-    "babel-preset-es2015": "6.14",
-    "babel-preset-react": "6.11",
-    "css-loader": "0.25",
-    "eslint": "3.5",
-    "eslint-plugin-react": "6.2",
-    "node-sass": "3.10",
-    "opener": "1.4",
-    "react-hot-loader": "1.3",
-    "sass-loader": "4.0",
-    "style-loader": "0.13",
-    "webpack": "1.13",
-    "webpack-dev-server": "1.15",
-    "webpack-merge": "0.14"
+    "react-course": "../.."
   }
 }
