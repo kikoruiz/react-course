@@ -12,6 +12,7 @@ export default class Demo extends Component {
     this.handleHighlightChange = this.handleHighlightChange.bind(this);
     this.handleNoteKeyPress = this.handleNoteKeyPress.bind(this);
     this.handleNoteDoubleClick = this.handleNoteDoubleClick.bind(this);
+    this.handleNoteCheck = this.handleNoteCheck.bind(this);
     this.state = {
       name: 'Escuela IT',
       language: 'en',
@@ -58,6 +59,20 @@ export default class Demo extends Component {
     }
   }
 
+  handleNoteCheck (index) {
+    const self = this;
+
+    return function ({ target }) {
+      const notes = self.state.notes.slice();
+      const note = Object.assign(notes[index], {
+        done: target.checked
+      });
+
+      notes.splice(index, 1, note);
+      self.setState({ notes });
+    }
+  }
+
   render () {
     const { name, language, highlight, notes } = this.state;
 
@@ -83,6 +98,7 @@ export default class Demo extends Component {
           <Notes
             notes={notes}
             handleNoteDoubleClick={this.handleNoteDoubleClick}
+            handleNoteCheck={this.handleNoteCheck}
           />
         </div>
       </div>

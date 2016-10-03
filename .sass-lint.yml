@@ -8,8 +8,6 @@ rules:
   brace-style:
     - 1
     - allow-single-line: false
-  class-name-format:
-    - 1
   clean-import-paths:
     - 1
     - filename-extension: false

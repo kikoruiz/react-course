@@ -3,7 +3,8 @@ import classNames from 'classnames';
 
 export default function Notes ({
   notes,
-  handleNoteDoubleClick
+  handleNoteDoubleClick,
+  handleNoteCheck
 }) {
   const hasNotes = notes.length > 0;
 
@@ -24,7 +25,14 @@ export default function Notes ({
                 className={className}
                 onDoubleClick={handleNoteDoubleClick(index)}
               >
-                {note.text}
+                <label>
+                  <input
+                    type='checkbox'
+                    className='notes-itemCheck'
+                    onChange={handleNoteCheck(index)}
+                  />
+                  {note.text}
+                </label>
               </li>
             );
           })}
