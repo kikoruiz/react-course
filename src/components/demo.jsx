@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Title from './title';
 import Form from './form';
 import Notes from './notes';
@@ -56,7 +56,7 @@ export default class Demo extends Component {
 
       notes.splice(index, 1, note);
       self.setState({ notes });
-    }
+    };
   }
 
   handleNoteCheck (index) {
@@ -70,7 +70,7 @@ export default class Demo extends Component {
 
       notes.splice(index, 1, note);
       self.setState({ notes });
-    }
+    };
   }
 
   render () {
