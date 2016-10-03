@@ -29,18 +29,20 @@ export default class Demo extends Component {
   }
 
   render () {
+    const { name, language, highlight } = this.state;
+
     return (
       <div className='demo'>
         <div className='main'>
           <Title
-            name={this.state.name}
-            language={this.state.language}
-            highlight={this.state.highlight}
+            name={name}
+            language={language}
+            highlight={highlight}
           />
           <Form
-            defaultName={this.state.name}
-            defaultLanguage={this.state.language}
-            defaultHighlight={this.state.highlight}
+            defaultName={name}
+            defaultLanguage={language}
+            defaultHighlight={highlight}
             handleNameChange={this.handleNameChange}
             handleLanguageChange={this.handleLanguageChange}
             handleHighlightChange={this.handleHighlightChange}
