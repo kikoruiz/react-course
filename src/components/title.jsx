@@ -1,32 +1,19 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { translations } from '../data';
 import { languages } from '../config';
 
-export default class Title extends Component {
-  static get propTypes () {
-    return {
-      user: PropTypes.string,
-      language: PropTypes.oneOf(languages),
-      highlightTitle: PropTypes.bool
-    };
-  }
+export default function Title ({ name, language, highlight }) {
+  const title = translations[language]['TITLE'].replace('%name%', name);
+  const className = classNames('title', {
+    'title--highlighted': highlight
+  });
 
-  title () {
-    const { user, language } = this.props;
-
-    return translations[language]['TITLE'].replace(
-      '%user%',
-      user
-    );
-  }
-
-  render () {
-    const { highlightTitle } = this.props;
-    const className = classNames('title', {
-      'title--highlighted': highlightTitle
-    });
-
-    return (<h1 className={className}>{this.title()}</h1>);
-  }
+  return <h1 className={className}>{title}</h1>;
 }
+
+Title.propTypes = {
+  name: PropTypes.string.isRequired,
+  language: PropTypes.oneOf(languages).isRequired,
+  highlight: PropTypes.bool.isRequired
+};

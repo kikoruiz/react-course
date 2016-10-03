@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app';
+import Demo from './components/demo';
 import './index.scss';
 
 ReactDOM.render(
-  <App />,
+  <Demo />,
   document.getElementById('demo')
 );

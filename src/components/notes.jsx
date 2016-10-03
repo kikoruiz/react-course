@@ -1,7 +1,11 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export default function Notes ({ notes, handleNoteDoubleClick }) {
+export default function Notes ({
+  notes,
+  handleNoteDoubleClick,
+  handleNoteCheck
+}) {
   const hasNotes = notes.length > 0;
 
   return (
@@ -11,7 +15,8 @@ export default function Notes ({ notes, handleNoteDoubleClick }) {
         <ul className='notes'>
           {notes.map((note, index) => {
             const className = classNames('notes-item', {
-              'notes-item--done': note.done
+              'notes-item--done': note.done,
+              'notes-item--highlighted': note.highlighted
             });
 
             return (
@@ -20,7 +25,14 @@ export default function Notes ({ notes, handleNoteDoubleClick }) {
                 className={className}
                 onDoubleClick={handleNoteDoubleClick(index)}
               >
-                {note.text}
+                <label>
+                  <input
+                    type='checkbox'
+                    className='notes-itemCheck'
+                    onChange={handleNoteCheck(index)}
+                  />
+                  {note.text}
+                </label>
               </li>
             );
           })}
@@ -30,12 +42,3 @@ export default function Notes ({ notes, handleNoteDoubleClick }) {
     </div>
   );
 }
-
-Notes.propTypes = {
-  notes: PropTypes.array,
-  handleNoteDoubleClick: PropTypes.func.isRequired
-};
-
-Notes.defaultProps = {
-  notes: []
-};

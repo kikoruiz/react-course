@@ -1,34 +1,33 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { languages } from '../config';
 
 export default function Form ({
-  defaultUser,
+  defaultName,
   defaultLanguage,
-  defaultHighlightTitle,
-  handleUserChange,
+  defaultHighlight,
+  handleNameChange,
   handleLanguageChange,
-  handleHighlightTitleChange,
-  handleNoteSubmit
+  handleHighlightChange,
+  handleNoteKeyPress
 }) {
-  function handleNoteKeyPress (event) {
-    if (event.key === 'Enter') {
-      handleNoteSubmit(event);
-    }
-  }
-
   return (
     <div>
       <div className='form-field'>
-        <label htmlFor='user'>User: </label>
-        <input id='user' type='text' onChange={handleUserChange} placeholder={defaultUser} />
+        <label htmlFor='name'>Name: </label>
+        <input
+          type='text'
+          id='name'
+          value={defaultName}
+          onChange={handleNameChange}
+        />
       </div>
 
       <div className='form-field'>
         <label htmlFor='language'>Language: </label>
         <select
           id='language'
-          onChange={handleLanguageChange}
           defaultValue={defaultLanguage}
+          onChange={handleLanguageChange}
         >
           {languages.map((language, index) => {
             return (
@@ -41,23 +40,30 @@ export default function Form ({
       </div>
 
       <div className='form-field'>
-        <label htmlFor='highlight-title'>Hightlight title: </label>
+        <label htmlFor='highlight'>Highlight: </label>
         <input
-          id='highlight-title'
           type='checkbox'
-          onChange={handleHighlightTitleChange}
-          checked={defaultHighlightTitle}
+          id='highlight'
+          checked={defaultHighlight}
+          onChange={handleHighlightChange}
         />
       </div>
 
       <div className='form-field'>
         <label htmlFor='note'>Add a note: </label>
         <input
-          id='note'
           type='text'
+          id='note'
           onKeyPress={handleNoteKeyPress}
         />
       </div>
     </div>
   );
 }
+
+Form.propTypes = {
+  handleNameChange: PropTypes.func.isRequired,
+  handleLanguageChange: PropTypes.func.isRequired,
+  handleHighlightChange: PropTypes.func.isRequired,
+  handleNoteKeyPress: PropTypes.func.isRequired
+};
