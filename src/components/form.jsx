@@ -7,7 +7,8 @@ export default function Form ({
   defaultHighlight,
   handleNameChange,
   handleLanguageChange,
-  handleHighlightChange
+  handleHighlightChange,
+  handleNoteKeyPress
 }) {
   return (
     <div>
@@ -47,6 +48,15 @@ export default function Form ({
           onChange={handleHighlightChange}
         />
       </div>
+
+      <div className='form-field'>
+        <label htmlFor='note'>Add a note: </label>
+        <input
+          type='text'
+          id='note'
+          onKeyPress={handleNoteKeyPress}
+        />
+      </div>
     </div>
   );
 }
@@ -54,5 +64,6 @@ export default function Form ({
 Form.propTypes = {
   handleNameChange: PropTypes.func.isRequired,
   handleLanguageChange: PropTypes.func.isRequired,
-  handleHighlightChange: PropTypes.func.isRequired
+  handleHighlightChange: PropTypes.func.isRequired,
+  handleNoteKeyPress: PropTypes.func.isRequired
 };

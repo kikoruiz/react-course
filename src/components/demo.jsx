@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { notes } from '../data';
 import Title from './title';
 import Form from './form';
 import Notes from './notes';
@@ -11,27 +10,40 @@ export default class Demo extends Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleLanguageChange = this.handleLanguageChange.bind(this);
     this.handleHighlightChange = this.handleHighlightChange.bind(this);
+    this.handleNoteKeyPress = this.handleNoteKeyPress.bind(this);
     this.state = {
       name: 'Escuela IT',
       language: 'en',
-      highlight: false
+      highlight: false,
+      notes: []
     };
   }
 
-  handleNameChange (event) {
-    this.setState({ name: event.target.value });
+  handleNameChange ({ target }) {
+    this.setState({ name: target.value });
   }
 
-  handleLanguageChange (event) {
-    this.setState({ language: event.target.value });
+  handleLanguageChange ({ target }) {
+    this.setState({ language: target.value });
   }
 
-  handleHighlightChange (event) {
-    this.setState({ highlight: event.target.checked });
+  handleHighlightChange ({ target }) {
+    this.setState({ highlight: target.checked });
+  }
+
+  handleNoteKeyPress ({ target, key }) {
+    if (key === 'Enter' && target.value !== '') {
+      const notes = this.state.notes.slice();
+      notes.push({
+        text: target.value
+      });
+      this.setState({ notes });
+      target.value = '';
+    }
   }
 
   render () {
-    const { name, language, highlight } = this.state;
+    const { name, language, highlight, notes } = this.state;
 
     return (
       <div className='demo'>
@@ -48,6 +60,7 @@ export default class Demo extends Component {
             handleNameChange={this.handleNameChange}
             handleLanguageChange={this.handleLanguageChange}
             handleHighlightChange={this.handleHighlightChange}
+            handleNoteKeyPress={this.handleNoteKeyPress}
           />
         </div>
         <div className='sidebar'>
