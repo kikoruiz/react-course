@@ -11,7 +11,7 @@ export default class Demo extends Component {
     this.handleHighlightChange = this.handleHighlightChange.bind(this);
     this.state = {
       name: 'Escuela IT',
-      language: 'es',
+      language: 'en',
       highlight: false
     };
   }
@@ -38,6 +38,9 @@ export default class Demo extends Component {
             highlight={this.state.highlight}
           />
           <Form
+            defaultName={this.state.name}
+            defaultLanguage={this.state.language}
+            defaultHighlight={this.state.highlight}
             handleNameChange={this.handleNameChange}
             handleLanguageChange={this.handleLanguageChange}
             handleHighlightChange={this.handleHighlightChange}

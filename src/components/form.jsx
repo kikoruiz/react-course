@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react';
 import { languages } from '../config';
 
 export default function Form ({
+  defaultName,
+  defaultLanguage,
+  defaultHighlight,
   handleNameChange,
   handleLanguageChange,
   handleHighlightChange
@@ -10,12 +13,21 @@ export default function Form ({
     <div>
       <div className='form-field'>
         <label htmlFor='name'>Name: </label>
-        <input type='text' id='name' onChange={handleNameChange} />
+        <input
+          type='text'
+          id='name'
+          value={defaultName}
+          onChange={handleNameChange}
+        />
       </div>
 
       <div className='form-field'>
         <label htmlFor='language'>Language: </label>
-        <select id='language' onChange={handleLanguageChange}>
+        <select
+          id='language'
+          defaultValue={defaultLanguage}
+          onChange={handleLanguageChange}
+        >
           {languages.map((language, index) => {
             return (
               <option key={index} value={language}>
@@ -28,7 +40,12 @@ export default function Form ({
 
       <div className='form-field'>
         <label htmlFor='highlight'>Highlight: </label>
-        <input type='checkbox' id='highlight' onChange={handleHighlightChange} />
+        <input
+          type='checkbox'
+          id='highlight'
+          checked={defaultHighlight}
+          onChange={handleHighlightChange}
+        />
       </div>
     </div>
   );
