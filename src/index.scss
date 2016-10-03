@@ -51,6 +51,10 @@ body {
       border-bottom: 1px solid #ccc;
     }
 
+    &--highlighted {
+      background-color: $c-highlighted;
+    }
+
     &--done {
       color: lighten(black, 60%);
       text-decoration: line-through;

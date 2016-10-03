@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import { notes } from '../data';
 import Title from './title';
 import Form from './form';
+import Notes from './notes';
 
 export default class Demo extends Component {
   constructor () {
@@ -48,7 +50,9 @@ export default class Demo extends Component {
             handleHighlightChange={this.handleHighlightChange}
           />
         </div>
-        <div className='sidebar'></div>
+        <div className='sidebar'>
+          <Notes notes={notes} />
+        </div>
       </div>
     );
   }
