@@ -1,7 +1,11 @@
 import React, { PropTypes } from 'react';
 import { languages } from '../config';
 
-export default function Form ({ handleNameChange, handleLanguageChange }) {
+export default function Form ({
+  handleNameChange,
+  handleLanguageChange,
+  handleHighlightChange
+}) {
   return (
     <div>
       <div className='form-field'>
@@ -21,11 +25,17 @@ export default function Form ({ handleNameChange, handleLanguageChange }) {
           })}
         </select>
       </div>
+
+      <div className='form-field'>
+        <label htmlFor='highlight'>Highlight: </label>
+        <input type='checkbox' id='highlight' onChange={handleHighlightChange} />
+      </div>
     </div>
   );
 }
 
 Form.propTypes = {
   handleNameChange: PropTypes.func.isRequired,
-  handleLanguageChange: PropTypes.func.isRequired
+  handleLanguageChange: PropTypes.func.isRequired,
+  handleHighlightChange: PropTypes.func.isRequired
 };
