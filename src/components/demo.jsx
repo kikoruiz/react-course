@@ -19,8 +19,11 @@ export default class Demo extends Component {
   render () {
     return (
       <div className='demo'>
-        <Title name={this.state.name} />
-        <Form handleNameChange={this.handleNameChange} />
+        <div className='main'>
+          <Title name={this.state.name} />
+          <Form handleNameChange={this.handleNameChange} />
+        </div>
+        <div className='sidebar'></div>
       </div>
     );
   }
