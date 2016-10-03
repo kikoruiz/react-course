@@ -12,6 +12,8 @@
   },
   "scripts": {
     "build": "webpack",
+    "deploy": "gh-pages-deploy",
+    "clean": "rm -rf demo src subjects .babelrc .eslintrc .sass-lint.yml LICENSE package.json README.md server.js webpack.config.js",
     "start": "opener http://localhost:3000 && node server.js"
   },
   "dependencies": {
@@ -30,6 +32,7 @@
     "css-loader": "0.25",
     "eslint-plugin-react": "6.2",
     "eslint": "3.5",
+    "gh-pages-deploy": "0.4",
     "node-sass": "3.10",
     "opener": "1.4",
     "postcss-loader": "^0.13.0",
@@ -39,5 +42,15 @@
     "webpack-dev-server": "1.15",
     "webpack-merge": "0.14",
     "webpack": "1.13"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "demo",
+    "prep": [
+      "build"
+    ],
+    "post": [
+      "clean"
+    ],
+    "noprompt": true
   }
 }

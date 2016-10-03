@@ -40,7 +40,7 @@ if (!TARGET || TARGET === 'start') {
     ],
     plugins: [
       new webpack.HotModuleReplacementPlugin()
-    ],
+    ]
   };
 }
 
