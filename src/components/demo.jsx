@@ -11,6 +11,7 @@ export default class Demo extends Component {
     this.handleLanguageChange = this.handleLanguageChange.bind(this);
     this.handleHighlightChange = this.handleHighlightChange.bind(this);
     this.handleNoteKeyPress = this.handleNoteKeyPress.bind(this);
+    this.handleNoteDoubleClick = this.handleNoteDoubleClick.bind(this);
     this.state = {
       name: 'Escuela IT',
       language: 'en',
@@ -42,6 +43,21 @@ export default class Demo extends Component {
     }
   }
 
+  handleNoteDoubleClick (index) {
+    const self = this;
+
+    return function ({ target }) {
+      const isHighlighted = target.classList.contains('notes-item--highlighted');
+      const notes = self.state.notes.slice();
+      const note = Object.assign(notes[index], {
+        highlighted: !isHighlighted
+      });
+
+      notes.splice(index, 1, note);
+      self.setState({ notes });
+    }
+  }
+
   render () {
     const { name, language, highlight, notes } = this.state;
 
@@ -64,7 +80,10 @@ export default class Demo extends Component {
           />
         </div>
         <div className='sidebar'>
-          <Notes notes={notes} />
+          <Notes
+            notes={notes}
+            handleNoteDoubleClick={this.handleNoteDoubleClick}
+          />
         </div>
       </div>
     );

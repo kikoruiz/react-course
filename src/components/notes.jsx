@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export default function Notes ({ notes }) {
+export default function Notes ({
+  notes,
+  handleNoteDoubleClick
+}) {
   const hasNotes = notes.length > 0;
 
   return (
@@ -16,7 +19,11 @@ export default function Notes ({ notes }) {
             });
 
             return (
-              <li key={index} className={className}>
+              <li
+                key={index}
+                className={className}
+                onDoubleClick={handleNoteDoubleClick(index)}
+              >
                 {note.text}
               </li>
             );
