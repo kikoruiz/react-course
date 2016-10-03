@@ -64,5 +64,10 @@ body {
       text-decoration: line-through;
       background-color: lighten(#ccc, 15%);
     }
+
+    &--highlighted.notes-item--done {
+      background-color: lighten($c-highlighted, 15%);
+      color: darken($c-highlighted, 60%);
+    }
   }
 }
