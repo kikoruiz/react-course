@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import { languages } from '../config';
 
 export default function Form ({
-  defaultName,
-  defaultLanguage,
-  defaultHighlight,
+  name,
+  language,
+  highlight,
   handleNameChange,
   handleLanguageChange,
   handleHighlightChange,
@@ -17,7 +17,7 @@ export default function Form ({
         <input
           type='text'
           id='name'
-          value={defaultName}
+          value={name}
           onChange={handleNameChange}
         />
       </div>
@@ -26,7 +26,7 @@ export default function Form ({
         <label htmlFor='language'>Language: </label>
         <select
           id='language'
-          defaultValue={defaultLanguage}
+          value={language}
           onChange={handleLanguageChange}
         >
           {languages.map((language, index) => {
@@ -44,7 +44,7 @@ export default function Form ({
         <input
           type='checkbox'
           id='highlight'
-          checked={defaultHighlight}
+          checked={highlight}
           onChange={handleHighlightChange}
         />
       </div>
@@ -62,6 +62,9 @@ export default function Form ({
 }
 
 Form.propTypes = {
+  name: PropTypes.string.isRequired,
+  language: PropTypes.string.isRequired,
+  highlight: PropTypes.bool.isRequired,
   handleNameChange: PropTypes.func.isRequired,
   handleLanguageChange: PropTypes.func.isRequired,
   handleHighlightChange: PropTypes.func.isRequired,

@@ -42,3 +42,9 @@ export default function Notes ({
     </div>
   );
 }
+
+Notes.propTypes = {
+  notes: PropTypes.array,
+  handleNoteDoubleClick: PropTypes.func,
+  handleNoteCheck: PropTypes.func
+};

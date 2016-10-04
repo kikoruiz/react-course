@@ -85,9 +85,9 @@ export default class Demo extends Component {
             highlight={highlight}
           />
           <Form
-            defaultName={name}
-            defaultLanguage={language}
-            defaultHighlight={highlight}
+            name={name}
+            language={language}
+            highlight={highlight}
             handleNameChange={this.handleNameChange}
             handleLanguageChange={this.handleLanguageChange}
             handleHighlightChange={this.handleHighlightChange}

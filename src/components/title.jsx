@@ -4,7 +4,7 @@ import { translations } from '../data';
 import { languages } from '../config';
 
 export default function Title ({ name, language, highlight }) {
-  const title = translations[language]['TITLE'].replace('%name%', name);
+  const title = translations[language].TITLE.replace('%name%', name);
   const className = classNames('title', {
     'title--highlighted': highlight
   });
