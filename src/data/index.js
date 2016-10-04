@@ -1,16 +1,8 @@
 const translations = {
-  'es': {
-    'TITLE': '¡Hola %name%!'
-  },
-  'en': {
-    'TITLE': 'Hello %name%!'
-  },
-  'fr': {
-    'TITLE': 'Bonjour %name%!'
-  },
-  'it': {
-    'TITLE': 'Ciao %name%!'
-  }
+  'es': {},
+  'en': {},
+  'fr': {},
+  'it': {}
 };
 
 export { translations };
