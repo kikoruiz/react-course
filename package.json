@@ -11,7 +11,7 @@
     "url": "https://github.com/kikoruiz/react-course.git"
   },
   "scripts": {
-    "build": "webpack && build:slides",
+    "build": "webpack && npm run build:slides",
     "build:slides": "cp -R node_modules/reveal.js/css slides/css && cp -R node_modules/reveal.js/js slides/js && cp -R node_modules/reveal.js/lib slides/lib && cp -R node_modules/reveal.js/plugin slides/plugin",
     "deploy": "gh-pages-deploy",
     "clean": "rm -rf demo src subjects .babelrc .eslintrc .sass-lint.yml LICENSE package.json README.md server.js webpack.config.js",
