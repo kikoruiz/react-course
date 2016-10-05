@@ -12,7 +12,7 @@ body {
 
 .demo {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: column;
 
   @media screen and (min-width: 601px) {

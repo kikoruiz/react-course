@@ -9,7 +9,7 @@ export default function Title ({ name, language, highlight }) {
     'title--highlighted': highlight
   });
 
-  return <h1 className={className}>{title}</h1>;
+  return <h2 className={className}>{title}</h2>;
 }
 
 Title.propTypes = {

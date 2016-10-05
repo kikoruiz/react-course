@@ -4,8 +4,8 @@ import Form from './form';
 import Notes from './notes';
 
 export default class Demo extends Component {
-  constructor () {
-    super();
+  constructor (...args) {
+    super(...args);
 
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleLanguageChange = this.handleLanguageChange.bind(this);
@@ -14,8 +14,8 @@ export default class Demo extends Component {
     this.handleNoteDoubleClick = this.handleNoteDoubleClick.bind(this);
     this.handleNoteCheck = this.handleNoteCheck.bind(this);
     this.state = {
-      name: 'Escuela IT',
-      language: 'en',
+      name: 'React Router',
+      language: 'es',
       highlight: false,
       notes: []
     };

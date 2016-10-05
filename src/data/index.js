@@ -1,15 +1,19 @@
 const translations = {
   'es': {
-    'TITLE': '¡Hola %name%!'
+    'TITLE': '¡Hola %name%!',
+    'HEADER': 'Mi nueva aplicación'
   },
   'en': {
-    'TITLE': 'Hello %name%!'
+    'TITLE': 'Hello %name%!',
+    'HEADER': 'My new application'
   },
   'fr': {
-    'TITLE': 'Bonjour %name%!'
+    'TITLE': 'Bonjour %name%!',
+    'HEADER': 'Ma nouvelle application'
   },
   'it': {
-    'TITLE': 'Ciao %name%!'
+    'TITLE': 'Ciao %name%!',
+    'HEADER': 'La mia nuova applicazione'
   }
 };
 
