@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import { translations } from '../data';
 
-export default function App ({ children, language }) {
+export default function App ({ children, params }) {
+  const { language } = params;
   const header = translations[language].HEADER;
 
   return (
@@ -14,9 +15,5 @@ export default function App ({ children, language }) {
 
 App.propTypes = {
   children: PropTypes.node,
-  language: PropTypes.string.isRequired
-};
-
-App.defaultProps = {
-  language: 'es'
+  params: PropTypes.object
 };
