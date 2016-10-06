@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
 import { translations } from '../data';
 import { languages } from '../config';
+import NavLink from './nav-link';
 
-export default function App ({ children, params }) {
+export default function App (props) {
+  const { children, params } = props;
   const { language } = params;
 
   if (languages.indexOf(language) === -1) {
@@ -14,6 +16,10 @@ export default function App ({ children, params }) {
   return (
     <div>
       <h1>{header}</h1>
+      <nav>
+        <NavLink {...props} path='' text='Demo' />
+        <NavLink {...props} path='about' text='About' />
+      </nav>
       {children}
     </div>
   );
