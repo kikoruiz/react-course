@@ -71,7 +71,7 @@ export default class Demo extends Component {
     const { name, highlight, notes } = this.state;
 
     return (
-      <div className='demo'>
+      <div className='section section--demo'>
         <div className='main'>
           <Title
             name={name}
