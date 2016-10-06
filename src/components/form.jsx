@@ -3,15 +3,13 @@ import { languages } from '../config';
 
 export default function Form ({
   name,
+  language,
   highlight,
   handleNameChange,
+  handleLanguageChange,
   handleHighlightChange,
   handleNoteKeyPress
-}, { language, path }) {
-  function changeLanguage ({ target }) {
-    window.location.hash = `${target.value}/${path}`;
-  }
-
+}) {
   return (
     <div>
       <div className='form-field'>
@@ -29,7 +27,7 @@ export default function Form ({
         <select
           id='language'
           value={language}
-          onChange={changeLanguage}
+          onChange={handleLanguageChange}
         >
           {languages.map((language, index) => {
             return (
@@ -65,13 +63,10 @@ export default function Form ({
 
 Form.propTypes = {
   name: PropTypes.string.isRequired,
+  language: PropTypes.string.isRequired,
   highlight: PropTypes.bool.isRequired,
   handleNameChange: PropTypes.func.isRequired,
+  handleLanguageChange: PropTypes.func.isRequired,
   handleHighlightChange: PropTypes.func.isRequired,
   handleNoteKeyPress: PropTypes.func.isRequired
-};
-
-Form.contextTypes = {
-  language: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired
 };

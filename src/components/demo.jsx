@@ -8,12 +8,14 @@ export default class Demo extends Component {
     super(...args);
 
     this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleLanguageChange = this.handleLanguageChange.bind(this);
     this.handleHighlightChange = this.handleHighlightChange.bind(this);
     this.handleNoteKeyPress = this.handleNoteKeyPress.bind(this);
     this.handleNoteDoubleClick = this.handleNoteDoubleClick.bind(this);
     this.handleNoteCheck = this.handleNoteCheck.bind(this);
     this.state = {
       name: 'React Router',
+      language: 'es',
       highlight: false,
       notes: []
     };
@@ -21,6 +23,10 @@ export default class Demo extends Component {
 
   handleNameChange ({ target }) {
     this.setState({ name: target.value });
+  }
+
+  handleLanguageChange ({ target }) {
+    this.setState({ language: target.value });
   }
 
   handleHighlightChange ({ target }) {
@@ -68,19 +74,22 @@ export default class Demo extends Component {
   }
 
   render () {
-    const { name, highlight, notes } = this.state;
+    const { name, language, highlight, notes } = this.state;
 
     return (
-      <div className='section section--demo'>
+      <div className='demo'>
         <div className='main'>
           <Title
             name={name}
+            language={language}
             highlight={highlight}
           />
           <Form
             name={name}
+            language={language}
             highlight={highlight}
             handleNameChange={this.handleNameChange}
+            handleLanguageChange={this.handleLanguageChange}
             handleHighlightChange={this.handleHighlightChange}
             handleNoteKeyPress={this.handleNoteKeyPress}
           />
