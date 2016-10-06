@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { translations } from '../data';
 import { languages } from '../config';
 
-export default function Title ({ name, language, highlight }) {
+export default function Title ({ name, highlight }, { language }) {
   const title = translations[language].TITLE.replace('%name%', name);
   const className = classNames('title', {
     'title--highlighted': highlight
@@ -14,6 +14,9 @@ export default function Title ({ name, language, highlight }) {
 
 Title.propTypes = {
   name: PropTypes.string.isRequired,
-  language: PropTypes.oneOf(languages).isRequired,
   highlight: PropTypes.bool.isRequired
+};
+
+Title.contextTypes = {
+  language: PropTypes.oneOf(languages).isRequired
 };
